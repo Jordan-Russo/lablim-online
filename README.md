@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+<p align="center"><a target="_blank" href=""><img src="/public/imgs/logo.png" height="40"></img></a></p>
+<h1 align="center"><a target="_blank" href="">VISIT HERE</a></h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<a target="_blank" href="">
+  <img src="/public/imgs/.gif" alt="LabLIM Online Gif">
+</a>
 
-## Available Scripts
+<br/>
+<br/>
 
-In the project directory, you can run:
+<p>Get all the testing that your business needs at <a target="_blank" href="https://lablim-online.com/">Lablim Online</a>! Explore a platform where you can offer and receive testing services for products. Connect with others who need your expertise and find opportunities to contribute your skills. Join now to become part of a dynamic network focused on product testing and innovation.</p>
 
-### `npm start`
+## How It's Made:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Featured Tech:** 
+<div>
+  <picture><img src="https://img.shields.io/static/v1?label=&message=React&color=285700&style=plastic&logo=react&labelColor=333333" alt="React"/></picture>
+  <picture><img src="https://img.shields.io/static/v1?label=&message=JS&color=285700&style=plastic&logo=javascript&labelColor=333333" alt="JavaScript"/></picture>
+  <picture><img src="https://img.shields.io/static/v1?label=&message=MUI&color=285700&style=plastic&logo=mui&labelColor=333333" alt="MUI"/></picture>
+  <picture><img src="https://img.shields.io/static/v1?label=&message=Supabase&color=285700&style=plastic&logo=supabase&labelColor=333333" alt="Supabase"/></picture>
+  <picture><img src="https://img.shields.io/static/v1?label=&message=Node.js&color=285700&style=plastic&logo=nodedotjs&labelColor=333333" alt="NodeJS"/></picture>
+  <picture><img src="https://img.shields.io/static/v1?label=&message=React Router&color=285700&style=plastic&logo=reactrouter&labelColor=333333" alt="React Router"/></picture>
+  <picture><img src="https://img.shields.io/static/v1?label=&message=PostgreSQL&color=285700&style=plastic&logo=postgresql&labelColor=333333" alt="PostgreSQL"/></picture>
+</div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<p>A generalized wireframe illustrating the application flow is shown below.</p>
 
-### `npm test`
+<picture><img src="/public/imgs/lablim-online-wireframe.png" alt="LabLIM Online Wireframe"/></picture>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## For Demo Use:
 
-### `npm run build`
+Demo Email: <span>guest@</span><span>lablimonline.com</span>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Demo Password: lablimonline
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Next Version
+In the upcoming v1.1, more features will be added to improve accessibility and communication. This new version would bring the addition of:
+- Autocomplete integration while both searching for vendors and filtering orders.
+- Having vendors create preset tests and services that the client can see the rates for.
+- Migrate all DB connections to be server-sided (security).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Next features to implement:
+- Cross-comparing rates to get the client the best deal.
+- Addition of a delivery tracking system so both the client and vendor know where packages containing samples are at all times.
+- Ability to download results in bulk (multi-order export).
+- Adding in-app communications between clients and vendors for more communication and assistance.
+  
+## Lessons Learned:
 
-### `npm run eject`
+<p>Overall, my experience with MUI has been delightful and I intend to keep using it for future projects. Of all the other framework libraries for styling it's been the best one for me since it allows me to focus on the logic of an app rather than its style.</p> 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<p>It was particularly critical for its use of tables but I tried using it whenever applicable building the views. While it's not as easy to use as Bootstrap, it's less tedious than TailwindCSS and was a good choice that led me to the best result.</p>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p>When creating an order that has samples with each having tests at once, it was imperative to keep all the information stored in separate tables but still linked. Making the connection between the client and the database had some challenges.</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<p>One memorable bug I faced was a persistent mismatch in ID values for newly made orders which disrupted this process. I eventually learned that the ID was being recalculated so I used the react hook useMemo to prevent that.</p>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<p>I also had to deal with some of the shortcomings of Supabasse when handling this since I wanted more user information but couldn't get it all at once when a user signed up. SQL techniques like creating view tables to then reference allowed me to work around that.</p>
 
-## Learn More
+<p>Due to this there were two types of protected routes, one for users who didn't register and another for users who still had missing information. It adds a bit more complexity but it holds well.</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p>With the high amount of tables that had to interact at once in the DB, there was a lot of room for error when making requests. Formatting data before and after it gets sent so that it's usable was a task I became increasingly proficient in.</p>
