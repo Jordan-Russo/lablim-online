@@ -2,7 +2,7 @@
 <h1 align="center"><a target="_blank" href="">VISIT HERE</a></h1>
 
 <a target="_blank" href="">
-  <img src="/public/imgs/.gif" alt="LabLIM Online Gif">
+  <img src="/public/imgs/lablim-online-demo.gif" alt="LabLIM Online Gif">
 </a>
 
 <br/>

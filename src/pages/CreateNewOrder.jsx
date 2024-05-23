@@ -11,8 +11,8 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 export default function CreateNewOrder(){
   const orderID = useMemo(() => randomId(), []);
   const [organization, setOrganziation] = useState('')
-  const [samples, setSamples] = useState([{}])
-  const [tests, setTests] = useState([{}])
+  const [samples, setSamples] = useState([])
+  const [tests, setTests] = useState([])
   const [error, setError] = useState('')
   const { user: {id: userID}} = useAuth();
   let organizationID = ''
