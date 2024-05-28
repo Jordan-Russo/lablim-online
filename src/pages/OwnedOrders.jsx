@@ -11,6 +11,12 @@ export default function OwnedOrders(){
   const { user: {id: userID}} = useAuth()
   const navigate = useNavigate()
   const hasOrders = orders.length > 0
+  const color = {
+    'processing': '#0052cc',
+    'active': '#ee7600',
+    'complete': '#006400',
+    'canceled': '#990000',
+  }
 
   async function getOwnedOrders(setter) {
     // use API to get the name of the company and date that you made an order to
@@ -19,7 +25,7 @@ export default function OwnedOrders(){
     // setOrders to be the state of them.
     const { data } = await supabase
     .from('Orders')
-    .select("id, created_at, Organizations (name, id)")
+    .select("id, created_at, order_status, Organizations (name, id)")
     .eq('order_requested_by', userID)
     .order('created_at', { ascending: false })
   
@@ -36,9 +42,9 @@ export default function OwnedOrders(){
       {hasOrders && 
       <>
         <List>
-          {orders.map(({id: orderID, created_at,  Organizations: {name}}) => 
-            <ListItem key={orderID} onClick={() => navigate(`/manage-order/${orderID}`)} sx={{bgcolor: '#006400', mb: 2, display: 'flex', justifyContent: 'center', borderRadius: 10, '&:hover': {
-              bgcolor: 'green'
+          {orders.map(({id: orderID, created_at, order_status: orderStatus, Organizations: {name}}) => 
+            <ListItem key={orderID} onClick={() => navigate(`/manage-order/${orderID}`)} sx={{bgcolor: color[orderStatus], mb: 2, display: 'flex', justifyContent: 'center', borderRadius: 10, '&:hover': {
+              opacity: 0.8
             }}}>
               <Typography variant="h2">
                 {`${name} - ${new Date(created_at).toLocaleDateString()}`}

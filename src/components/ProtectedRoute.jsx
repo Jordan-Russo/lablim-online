@@ -12,7 +12,6 @@ const ProtectedRoute = ({ children }) => {
 
     // eslint-disable-next-line
     useEffect(() => {getInfo()}, [permission])
-
     if (!user) {
         // user is not authenticated
         return navigate("/login")
@@ -25,7 +24,7 @@ const ProtectedRoute = ({ children }) => {
         .select('name')
         .eq('user_id', userID)
         
-        const hasName = data.length > 0
+        const hasName = data?.length > 0
 
         if (!hasName) {
             setPermission('must create name first')
