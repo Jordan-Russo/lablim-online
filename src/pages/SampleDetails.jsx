@@ -23,7 +23,7 @@ import {
   randomId
 } from '@mui/x-data-grid-generator';
 
-const statusOptions = ['pending', 'in progress', 'complete', 'canceled'];
+const statusOptions = ['processing', 'active', 'complete', 'canceled'];
 
 export default function SampleDetails(){
   const { sampleID } = useParams();
@@ -37,9 +37,9 @@ export default function SampleDetails(){
   async function getTests(setter) {
     // Use API to get the name of the sample from the sampleID
     let { data: sampleData } = await supabase
-    .from('Samples')
-    .select('name, from_order')
-    .eq('id', sampleID)
+      .from('Samples')
+      .select('name, from_order')
+      .eq('id', sampleID)
     
     const [{name: sampleTitle, from_order: fromOrder}] = sampleData
     
@@ -48,9 +48,9 @@ export default function SampleDetails(){
 
     // use API to get the orderID and organizationID from the sampleID
     let { data: orderData } = await supabase
-    .from('Orders')
-    .select('id, order_requested_by, order_received_by')
-    .eq('id', fromOrder)
+      .from('Orders')
+      .select('id, order_requested_by, order_received_by')
+      .eq('id', fromOrder)
 
 
     const [{order_requested_by: ownerID, order_received_by: organizationID}] = orderData
@@ -67,7 +67,6 @@ export default function SampleDetails(){
       .select('*', { count: 'exact', head: true })
       .eq('user_id', userID)
       .eq('organization_id', organizationID)
-      .not('permission_level', 'is', 'customer')
 
     console.log(`Is Owner: ${Boolean(isOwner)}. Is From Organiztion ${Boolean(isFromOrganization)}`)
 

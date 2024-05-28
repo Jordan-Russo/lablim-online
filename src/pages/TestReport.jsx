@@ -64,7 +64,6 @@ export default function TestReport(){
       .select('*', { count: 'exact', head: true })
       .eq('user_id', userID)
       .eq('organization_id', organizationID)
-      .not('permission_level', 'is', 'customer')
 
     console.log(`Is Owner: ${Boolean(isOwner)}. Is From Organiztion ${Boolean(isFromOrganization)}`)
 

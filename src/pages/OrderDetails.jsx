@@ -13,6 +13,10 @@ import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Close';
 import LaunchIcon from '@mui/icons-material/Launch';
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+
 import {
   GridRowModes,
   DataGrid,
@@ -29,6 +33,7 @@ export default function OrderDetails(){
   const [samples, setSamples] = useState([]);
   const { user: {id: userID}} = useAuth();
   const [organizationName, setOrganizationName] = useState('')
+  const [orderStatus, setOrderStatus] = useState('processing')
   // userID will be used to prevent DB entry to unauthorized users
   const navigate = useNavigate();
 
@@ -36,14 +41,21 @@ export default function OrderDetails(){
     
     
     // Use API to get the name of the org from the orderID
-    let { data: nameData } = await supabase
+    let { data: nameData, error: searchError } = await supabase
     .from('Orders')
-    .select('Organizations(name, id)')
+    .select('order_status, Organizations(name, id)')
     .eq('id', orderID)
+
+    if(searchError){
+      console.error(searchError)
+      return
+    }
     
     const [{Organizations: {id: organizationID, name: organizationTitle}}] = nameData
     
     setOrganizationName(organizationTitle)
+    console.log(nameData)
+    setOrderStatus(nameData?.[0]?.order_status)
     
     // If user did not create order or is not from the organization, redirect them from the page
     // or to exclude certain types of users
@@ -59,7 +71,6 @@ export default function OrderDetails(){
       .select('*', { count: 'exact', head: true })
       .eq('user_id', userID)
       .eq('organization_id', organizationID)
-      .not('permission_level', 'is', 'customer')
 
     console.log(`Is Owner: ${Boolean(isOwner)}. Is From Organiztion ${Boolean(isFromOrganization)}`)
 
@@ -82,8 +93,7 @@ export default function OrderDetails(){
     
     // [{id, name}, ...]
   
-    data = data.map(({id, name}) => ({id, name})
-    )
+    data = data.map(({id, name}) => ({id, name}))
     setter(data)
     console.log(data)
   }
@@ -100,12 +110,43 @@ export default function OrderDetails(){
       }));
     };
 
+    const handleOrderStatusChange = async (e) => {
+      // should send value from input to the server to change it
+        // then should update the state of the page
+      // console.log('new order status:', e.target.value)
+      let { error: updateError } = await supabase
+        .from('Orders')
+        .update({order_status: e.target.value})
+        .eq('id', orderID)
+
+      if(updateError){
+        console.error(updateError)
+        return
+      }
+      setOrderStatus(e.target.value)
+    }
+
     return (
-      <GridToolbarContainer>
-        <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
-          Add record
-        </Button>
-      </GridToolbarContainer>
+      <>
+        <GridToolbarContainer>
+          <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
+            Add record
+          </Button>
+        <InputLabel id="order-status-label">Status</InputLabel>
+        <Select
+          labelId="order-status-label"
+          id="order-status"
+          value={orderStatus}
+          label="Status"
+          onChange={handleOrderStatusChange}
+        >
+          <MenuItem value={'processing'}>processing</MenuItem>
+          <MenuItem value={'active'}>active</MenuItem>
+          <MenuItem value={'complete'}>complete</MenuItem>
+          <MenuItem value={'canceled'}>canceled</MenuItem>
+        </Select>
+        </GridToolbarContainer>
+      </>
     );
   }
 

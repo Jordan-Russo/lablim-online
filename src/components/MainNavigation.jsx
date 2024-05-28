@@ -17,10 +17,11 @@ import { useTheme } from '@mui/material';
 import { supabaseClient as supabase } from "../config/supabase-client";
 
 const pages = [
-  {page: 'Create Organization', route: '/create-new-organization'},
-  {page: 'Manage Organization', route: '/manage-organization'},
-  {page: 'Create Order', route: '/create-new-order'},
-  {page: 'Manage Order', route: '/manage-order'},
+  {page: 'Create Org', route: '/create-new-organization'},
+  {page: 'Manage Org', route: '/manage-organization'},
+  {page: 'Make Order', route: '/create-new-order'},
+  {page: 'My Orders', route: '/manage-order'},
+  {page: 'Incoming Orders', route: '/incoming-orders'},
 ];
 
 const settings = [

@@ -15,6 +15,8 @@ import OrderDetails from './pages/OrderDetails'
 import SampleDetails from './pages/SampleDetails'
 import TestReport from './pages/TestReport'
 import CreateName from './pages/CreateName'
+import ReceivingOrganizations from './pages/ReceivingOrganizations'
+import IncomingOrders from './pages/IncomingOrders';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
@@ -134,6 +136,22 @@ export default function App() {
                 element={
                   <ProtectedRoute>
                     <CreateName />
+                  </ProtectedRoute>
+                }
+              />             
+              <Route
+                path="/incoming-orders"
+                element={
+                  <ProtectedRoute>
+                    <ReceivingOrganizations />
+                  </ProtectedRoute>
+                }
+              />             
+              <Route
+                path="/incoming-orders/:organizationID"
+                element={
+                  <ProtectedRoute>
+                    <IncomingOrders />
                   </ProtectedRoute>
                 }
               />             

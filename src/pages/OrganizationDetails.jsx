@@ -22,7 +22,7 @@ import {
   randomId
 } from '@mui/x-data-grid-generator';
 
-const roles = ['owner', 'customer', 'technician'];
+const roles = ['owner', 'technician'];
 
 export default function OrganizationDetails(){
   const { organizationID } = useParams();
@@ -67,7 +67,7 @@ export default function OrganizationDetails(){
 
     const handleClick = () => {
       const id = randomId();
-      setRows((oldRows) => [...oldRows, { id, email: '', role: 'customer', isNew: true }]);
+      setRows((oldRows) => [...oldRows, { id, email: '', role: 'technician', isNew: true }]);
       setRowModesModel((oldModel) => ({
         ...oldModel,
         [id]: { mode: GridRowModes.Edit, fieldToFocus: 'email' },
