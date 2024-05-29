@@ -37,10 +37,10 @@ export default function IncomingOrders(){
 
     const { data } = await supabase
     .from('Orders')
-    .select("id, created_at, order_status, Organizations (name, id)")
+    .select("id, created_at, order_status, Organizations (name, id), users(Names(name))")
     .eq('order_received_by', organizationID)
     .order('created_at', { ascending: false })
-  
+    console.log('real', data)
     setter(data)
   }
 
@@ -54,12 +54,12 @@ export default function IncomingOrders(){
       {hasOrders && 
       <>
         <List>
-          {orders.map(({id: orderID, created_at, order_status: orderStatus, Organizations: {name}}) => 
+          {orders.map(({id: orderID, created_at, order_status: orderStatus, users: {Names: {name: customerName}}}) => 
             <ListItem key={orderID} onClick={() => navigate(`/manage-order/${orderID}`)} sx={{bgcolor: color[orderStatus], mb: 2, display: 'flex', justifyContent: 'center', borderRadius: 10, '&:hover': {
               opacity: 0.8
             }}}>
               <Typography variant="h2">
-                {`${name} - ${new Date(created_at).toLocaleDateString()}`}
+                {`${customerName} - ${new Date(created_at).toLocaleDateString()}`}
               </Typography>
             </ListItem>
           )}
