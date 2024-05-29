@@ -122,7 +122,7 @@ export default function CreateNewOrder(){
             { 
               samples.map(sample => (
                 <Fragment key={sample.id}>
-                  <Box sx={{display: 'flex', flexWrap: 'no-wrap'}}>
+                  <Box sx={{display: 'flex', flexWrap: 'no-wrap', alignItems: 'flex-start'}}>
                     <TextField
                       id={sample.id}
                       value={sample.name}
@@ -155,7 +155,7 @@ export default function CreateNewOrder(){
                       tests
                         .filter(test => test.from_sample === sample.id)
                         .map(test => (
-                          <Box key={test.id} sx={{maxWidth: '100%', display: 'flex', flexWrap: 'no-wrap'}}>
+                          <Box key={test.id} sx={{maxWidth: '100%', display: 'flex', flexWrap: 'no-wrap', alignItems: 'flex-start'}}>
                             <TextField
                               id={test.id}
                               value={test.description}
@@ -187,7 +187,7 @@ export default function CreateNewOrder(){
                         ))
                     }
                     {
-                      <Button onClick={() => addNewTest(null, sample.id)} sx={{mb: 4, background: 'green', ml: 6}} fullWidth>Add New Test</Button>
+                      <Button onClick={() => addNewTest(null, sample.id)} sx={{ml: 6, mb: 4, bgcolor: 'green', color: 'white', fontWeight: 'bold', fontSize: '1rem', '&:hover': {bgcolor: 'darkgreen'}}} fullWidth>Add New Test</Button>
                     }
                 </Fragment>
                 )
@@ -195,11 +195,11 @@ export default function CreateNewOrder(){
             }
 
             {
-              <Button onClick={addNewSample} sx={{mb: 4, background: 'green'}} fullWidth>Add New Sample</Button>
+              <Button onClick={addNewSample} sx={{mb: 4, bgcolor: 'green', color: 'white', fontWeight: 'bold', fontSize: '1rem', '&:hover': {bgcolor: 'darkgreen'}}} fullWidth>Add New Sample</Button>
             }
 
 
-            <Button variant="contained" color='primary' type="submit">Submit Order</Button>
+            <Button variant="contained" color='primary' type="submit" sx={{fontWeight: 'bold', fontSize: '1.2rem'}}>Submit Order</Button>
           </form>
           <small>Already made an order? <Link to="/manage-orders">Find it here</Link></small>
         </Container>
