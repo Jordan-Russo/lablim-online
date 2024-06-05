@@ -19,7 +19,7 @@ export default function LandingPage() {
           </Button>
         </Box>
         <Box sx={{ flex: '1 1 50%', textAlign: 'center' }}>
-          <Box sx={{ maxWidth: 1, minWidth: 350 }} component="img" src="/imgs/landing-page/hero.webp" alt="Lab Computer and Equipment"/>
+          <Box sx={{ maxWidth: 1, minWidth: 350 }} component="img" loading="lazy" src="/imgs/landing-page/hero.webp" alt="Lab Computer and Equipment"/>
         </Box>
       </Box>
       
@@ -35,7 +35,7 @@ export default function LandingPage() {
           <Typography>LabLIM Online's intuitive and user-friendly interface enhances overall workflow efficiency in your laboratory.</Typography>
         </Box>
         <Box sx={{ flex: '1 1 50%', textAlign: 'center'}}>
-          <Box sx={{ maxWidth: 1, borderRadius: 5 }} component="img" src="/imgs/landing-page/efficiency.jpg" alt="Woman working in a lab" />
+          <Box sx={{ maxWidth: 1, borderRadius: 5 }} component="img" loading="lazy" src="/imgs/landing-page/efficiency.webp" alt="Woman working in a lab" />
         </Box>
       </Box>
 
@@ -51,7 +51,7 @@ export default function LandingPage() {
           <Typography>Trust in the accuracy and reliability of your data with LabLIM Online's robust features.</Typography>
         </Box>
         <Box sx={{ flex: '1 1 50%', textAlign: 'center' }}>
-          <Box sx={{ maxWidth: 1, borderRadius: 5 }} component="img" src="/imgs/landing-page/accuracy.jpg" alt="micro pipetting in a lab" />
+          <Box sx={{ maxWidth: 1, borderRadius: 5 }} component="img"  loading="lazy" src="/imgs/landing-page/accuracy.webp" alt="micro pipetting in a lab" />
         </Box>
       </Box>
       
@@ -67,7 +67,7 @@ export default function LandingPage() {
           <Typography>Unparalleled customization options allow you to adapt LabLIM Online to your lab's unique workflow and processes effortlessly.</Typography>
         </Box>
         <Box sx={{ flex: '1 1 50%', textAlign: 'center' }}>
-          <Box sx={{ maxWidth: 1, borderRadius: 5 }} component="img" src="/imgs/landing-page/dna.jpg" alt="DNA" />
+          <Box sx={{ maxWidth: 1, borderRadius: 5 }} component="img"  loading="lazy" src="/imgs/landing-page/dna.webp" alt="DNA" />
         </Box>
       </Box>
 
@@ -83,7 +83,7 @@ export default function LandingPage() {
           <Typography>Security is our top priority, implementing state-of-the-art measures to protect your data.</Typography>
         </Box>
         <Box sx={{ flex: '1 1 50%', textAlign: 'center' }}>
-          <Box sx={{ maxWidth: 1, borderRadius: 5 }} component="img" src="/imgs/landing-page/security.jpg" alt="Security" />
+          <Box sx={{ maxWidth: 1, borderRadius: 5 }} component="img" loading="lazy" src="/imgs/landing-page/security.webp" alt="Security" />
         </Box>
       </Box>
 
@@ -99,7 +99,7 @@ export default function LandingPage() {
           <Typography>LabLIM Online facilitates seamless collaboration among team members, boosting overall productivity.</Typography>
         </Box>
         <Box sx={{ flex: '1 1 50%', textAlign: 'center' }}>
-          <Box sx={{ maxWidth: 1, borderRadius: 5 }} component="img" src="/imgs/landing-page/team.jpg" alt="Lab Team Collaborating" />
+          <Box sx={{ maxWidth: 1, borderRadius: 5 }} component="img" loading="lazy" src="/imgs/landing-page/team.webp" alt="Lab Team Collaborating" />
         </Box>
       </Box>
 
