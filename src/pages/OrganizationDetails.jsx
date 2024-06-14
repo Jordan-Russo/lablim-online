@@ -51,7 +51,7 @@ export default function OrganizationDetails(){
       .eq('organization_id', organizationID)
 
     if(error){
-      console.log(error)
+      console.error(error)
     }
     
     // [{user_id, permission_level, users: {email} }, ...]
@@ -59,7 +59,7 @@ export default function OrganizationDetails(){
     data = data.map(({permission_level: role, id, users: {email}}) => ({role, id, email})
     )
     setter(data)
-    console.log(data)
+    // console.log(data)
   }
 
   function EditToolbar(props) {
@@ -151,7 +151,7 @@ export default function OrganizationDetails(){
         if(insertionError){
           console.error('insertion error:', insertionError)
         }
-        console.log('update completed')
+        // console.log('update completed')
       }else{
         const { data: userData } = await supabase
           .from('users')
@@ -168,7 +168,7 @@ export default function OrganizationDetails(){
         const [{id: user_id }] = userData
         // otherwise make a new permission insertion
 
-        console.log('new record being created')
+        // console.log('new record being created')
         const { error: updateError } = await supabase
           .from('Permissions')
           .insert({
@@ -183,7 +183,7 @@ export default function OrganizationDetails(){
         // grab the id from the returning record
       }
       const updatedRow = { ...newRow, isNew: false };
-      console.log(updatedRow)
+      // console.log(updatedRow)
       setUsers(rows.map((row) => (row.id === newRow.id ? updatedRow : row)));
       return updatedRow;
     };
