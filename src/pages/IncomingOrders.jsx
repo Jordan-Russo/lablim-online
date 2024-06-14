@@ -40,7 +40,7 @@ export default function IncomingOrders(){
     .select("id, created_at, order_status, Organizations (name, id), users(Names(name))")
     .eq('order_received_by', organizationID)
     .order('created_at', { ascending: false })
-    console.log('real', data)
+    // console.log('real', data)
     setter(data)
   }
 

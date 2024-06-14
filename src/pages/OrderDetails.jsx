@@ -54,7 +54,7 @@ export default function OrderDetails(){
     const [{Organizations: {id: organizationID, name: organizationTitle}}] = nameData
     
     setOrganizationName(organizationTitle)
-    console.log(nameData)
+    // console.log(nameData)
     setOrderStatus(nameData?.[0]?.order_status)
     
     // If user did not create order or is not from the organization, redirect them from the page
@@ -72,7 +72,7 @@ export default function OrderDetails(){
       .eq('user_id', userID)
       .eq('organization_id', organizationID)
 
-    console.log(`Is Owner: ${Boolean(isOwner)}. Is From Organiztion ${Boolean(isFromOrganization)}`)
+    // console.log(`Is Owner: ${Boolean(isOwner)}. Is From Organiztion ${Boolean(isFromOrganization)}`)
 
     const notAuthorized = !isOwner && !isFromOrganization
 
@@ -88,14 +88,14 @@ export default function OrderDetails(){
       .eq('from_order', orderID)
 
     if(error){
-      console.log(error)
+      console.error(error)
     }
     
     // [{id, name}, ...]
   
     data = data.map(({id, name}) => ({id, name}))
     setter(data)
-    console.log(data)
+    // console.log(data)
   }
 
   function EditToolbar(props) {
@@ -221,9 +221,9 @@ export default function OrderDetails(){
         if(insertionError){
           console.error('insertion error:', insertionError)
         }
-        console.log('update completed')
+        // console.log('update completed')
       }else{
-        console.log('new sample being created')
+        // console.log('new sample being created')
         const { error: updateError } = await supabase
           .from('Samples')
           .insert({ 

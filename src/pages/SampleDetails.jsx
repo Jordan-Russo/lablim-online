@@ -68,7 +68,7 @@ export default function SampleDetails(){
       .eq('user_id', userID)
       .eq('organization_id', organizationID)
 
-    console.log(`Is Owner: ${Boolean(isOwner)}. Is From Organiztion ${Boolean(isFromOrganization)}`)
+    // console.log(`Is Owner: ${Boolean(isOwner)}. Is From Organiztion ${Boolean(isFromOrganization)}`)
 
     const notAuthorized = !isOwner && !isFromOrganization
 
@@ -84,7 +84,7 @@ export default function SampleDetails(){
       .eq('from_sample', sampleID)
 
     if(error){
-      console.log(error)
+      console.error(error)
     }
     
     // [{id, description, result, status}, ...]
@@ -92,7 +92,7 @@ export default function SampleDetails(){
     data = data.map(({id, description, result, status}) => ({id, description, result, status})
     )
     setter(data)
-    console.log(data)
+    // console.log(data)
   }
 
   function EditToolbar(props) {
@@ -129,7 +129,7 @@ export default function SampleDetails(){
     };
 
     const handleEditClick = (id) => () => {
-      console.log(rowModesModel)
+      // console.log(rowModesModel)
       setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
     };
 
@@ -141,7 +141,7 @@ export default function SampleDetails(){
       const selectedRow = rows.find((row) => row.id === id)
       const confirmation = window.confirm(`Please confirm you want to remove ${selectedRow.description} as a test from the sample.`)
       if(!confirmation){
-        console.log('Deletion canceled, due to no confirmation.')
+        console.warn('Deletion canceled, due to no confirmation.')
         return
       }
       // api call to delete
@@ -183,9 +183,9 @@ export default function SampleDetails(){
         if(updateError){
           console.error('update error:', updateError)
         }
-        console.log('update completed')
+        // console.log('update completed')
       }else{
-        console.log('new test being created')
+        // console.log('new test being created')
         const { error: insertionError } = await supabase
           .from('Tests')
           .insert({ 

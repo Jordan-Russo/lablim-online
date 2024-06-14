@@ -108,7 +108,7 @@ export default function OrganizationDetails(){
       if(isOwner){
         const confirmation = window.confirm(`Please confirm you want to remove ${selectedRow.email} from having permissions`)
         if(!confirmation){
-          console.log('Deletion canceled, due to no confirmation.')
+          console.warning('Deletion canceled, due to no confirmation.')
           return
         }
       }

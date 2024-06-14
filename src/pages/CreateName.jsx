@@ -22,16 +22,16 @@ export default function CreateName(){
     .eq('user_id', userID)
     const name = data[0]?.name ?? ''
     setName(name)
-    console.log(name)
+    // console.log(name)
   }
 
   async function handleSubmit(event) {
       event.preventDefault();
-      console.log(userID, name)
+      // console.log(userID, name)
       const { error: upsertionError } = await supabase
         .from('Names')
         .upsert({ user_id: userID, name}, { onConflict: 'user_id' })
-      console.log(upsertionError)
+      // console.log(upsertionError)
 
       if(upsertionError){
         setError(upsertionError)

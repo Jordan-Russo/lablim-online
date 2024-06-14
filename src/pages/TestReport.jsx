@@ -25,7 +25,7 @@ export default function TestReport(){
     .select('Organizations(*), users(*, Names(*)), Samples(*, Tests(*))')
     .eq('id', orderID)
     
-    console.log("order data from api", orderData)
+    // console.log("order data from api", orderData)
     
     const {
       Organizations: {
@@ -65,7 +65,7 @@ export default function TestReport(){
       .eq('user_id', userID)
       .eq('organization_id', organizationID)
 
-    console.log(`Is Owner: ${Boolean(isOwner)}. Is From Organiztion ${Boolean(isFromOrganization)}`)
+    // console.log(`Is Owner: ${Boolean(isOwner)}. Is From Organiztion ${Boolean(isFromOrganization)}`)
 
     const notAuthorized = !isOwner && !isFromOrganization
 

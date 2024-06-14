@@ -38,7 +38,7 @@ export default function CreateNewOrder(){
         // edge case if sample doesn't have a name, all tests involving that sample should also be filtered
 
       // three api requests to submit
-      console.log(orderID)
+      // console.log(orderID)
       const {error: orderError} = await supabase
         .from('Orders')
         .insert({
@@ -50,20 +50,20 @@ export default function CreateNewOrder(){
       const {data} = await supabase
         .from('Orders')
         .select()
-      console.log(data)
+      // console.log(data)
       
-      console.log(samples)
+      // console.log(samples)
       const {error: sampleError} = await supabase
         .from('Samples')
         .insert(samples)
       
-      console.log(tests)
+      // console.log(tests)
 
       const {error: testError} = await supabase
         .from('Tests')
         .insert(tests)
 
-      console.log("order error:", orderError, "sample error:", sampleError, "test error:", testError)
+      // console.log("order error:", orderError, "sample error:", sampleError, "test error:", testError)
 
       navigate(`/manage-order/${orderID}`)
     }

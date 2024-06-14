@@ -31,7 +31,7 @@ export default function CreateNewOrganization(){
             console.error("search error:", searchError)
           }
           
-          console.log(organizationID, userID)
+          // console.log(organizationID, userID)
 
           const { error: insertionError } = await supabase
             .from('Permissions')
@@ -53,7 +53,7 @@ export default function CreateNewOrganization(){
           setError('This organization is already registered, please choose a different name.')
         }
         // if there's an error, return it
-        console.log(name, email, phone, address) 
+        // console.log(name, email, phone, address) 
 
     }
  

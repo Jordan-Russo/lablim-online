@@ -22,7 +22,7 @@ export default function ReceivingOrganizations(){
     .select("Organizations (name, id)")
     .eq('user_id', userID)
   
-    console.log(data)
+    // console.log(data)
     setter(data)
   }
 

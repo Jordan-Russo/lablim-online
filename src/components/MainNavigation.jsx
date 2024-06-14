@@ -54,7 +54,7 @@ export default function MainNavigation() {
     .select('name')
     .eq('user_id', userID)
     const name = data?.[0]?.name ?? user?.email ?? ''
-    console.log(name)
+    // console.log(name)
     setName(name)
   }
 

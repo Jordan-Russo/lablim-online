@@ -23,7 +23,7 @@ export default function OwnedOrganizations(){
     .eq('user_id', userID)
     .eq('permission_level', "owner")
   
-    console.log(data)
+    // console.log(data)
     setter(data)
   }
 
