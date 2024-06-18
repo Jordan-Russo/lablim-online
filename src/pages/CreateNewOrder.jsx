@@ -6,6 +6,7 @@ import { supabaseClient as supabase } from '../config/supabase-client';
 import { randomId } from '@mui/x-data-grid-generator';
 import IconButton from '@mui/material/IconButton';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import AutocompleteOrganizationSearch from '../components/AutocompleteOrganizationSearch';
  
  
 export default function CreateNewOrder(){
@@ -21,6 +22,7 @@ export default function CreateNewOrder(){
 
   async function handleSubmit(event) {
     event.preventDefault();
+    console.log(organization)
     const { data } = await supabase
         .from('Organizations')
         .select('id')
@@ -38,7 +40,6 @@ export default function CreateNewOrder(){
         // edge case if sample doesn't have a name, all tests involving that sample should also be filtered
 
       // three api requests to submit
-      // console.log(orderID)
       const {error: orderError} = await supabase
         .from('Orders')
         .insert({
@@ -47,23 +48,21 @@ export default function CreateNewOrder(){
           order_received_by: organizationID
         })
       
-      const {data} = await supabase
-        .from('Orders')
-        .select()
-      // console.log(data)
-      
       // console.log(samples)
       const {error: sampleError} = await supabase
         .from('Samples')
         .insert(samples)
       
-      // console.log(tests)
+      if(sampleError){
+        console.error(sampleError)
+      }
 
       const {error: testError} = await supabase
         .from('Tests')
         .insert(tests)
-
-      // console.log("order error:", orderError, "sample error:", sampleError, "test error:", testError)
+      if(testError){
+        console.error("order error:", orderError, "sample error:", sampleError, "test error:", testError)
+      }
 
       navigate(`/manage-order/${orderID}`)
     }
@@ -108,8 +107,12 @@ export default function CreateNewOrder(){
           <form onSubmit={handleSubmit}>                
             <Typography variant="small" sx={{color: 'red'}}>
               {error}
-            </Typography>   
-            <TextField
+            </Typography>
+            {/* changes start */}
+            {/* changes end */}
+            <AutocompleteOrganizationSearch setter={(org) => {setOrganziation(org)}}/>
+            {/* removed below */}
+            {/* <TextField
               type="text"
               color="primary"
               variant='filled'
@@ -119,7 +122,8 @@ export default function CreateNewOrder(){
               required
               fullWidth
               sx={{mb: 4, background: 'darkgray'}}
-            />
+            /> */}
+            {/* removed above */}
             { 
               samples.map(sample => (
                 <Fragment key={sample.id}>
