@@ -35,11 +35,12 @@ Demo Password: lablimonline
 
 ## Next Version
 In the upcoming v1.1, more features will be added to improve accessibility and communication. This new version would bring the addition of:
-- Autocomplete integration while both searching for vendors and filtering orders.
+
+- ${\textsf{\color{lightgreen}Complete}}$ ~~Autocomplete integration while both searching for vendors~~
 - Having vendors create preset tests and services that the client can see the rates for.
 - Migrate all DB connections to be server-sided (security).
 
-## Next features to implement:
+## Other features to implement:
 - Cross-comparing rates to get the client the best deal.
 - Addition of a delivery tracking system so both the client and vendor know where packages containing samples are at all times.
 - Ability to download results in bulk (multi-order export).
