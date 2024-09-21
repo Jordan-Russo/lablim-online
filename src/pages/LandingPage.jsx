@@ -1,4 +1,5 @@
 import { Box, Button, Container, Typography } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 export default function LandingPage() {
   return (
@@ -14,9 +15,11 @@ export default function LandingPage() {
           <Typography variant='h3' sx={{color: 'primary.main', my: 1}}>Services</Typography>
           <Typography variant="h2" component="h1" sx={{ my: 1}}>Your Online Lab Flow Solution</Typography>
           <Typography sx={{ my: 1, textWrap: 'balance' }}>Efficient lab management: Intuitive web interface, real-time mobile data entry.</Typography>
-          <Button variant="contained">
-            <Typography variant="h6" component="span" sx={{ my: 1 }}>Get Started</Typography>
-          </Button>
+          <NavLink to="/login">
+            <Button variant="contained">
+              <Typography variant="h6" component="span" sx={{ my: 1 }}>Get Started</Typography>
+            </Button>
+          </NavLink>
         </Box>
         <Box sx={{ flex: '1 1 50%', textAlign: 'center' }}>
           <Box sx={{ maxWidth: 1, minWidth: 350 }} component="img" loading="lazy" src="/imgs/landing-page/hero.webp" alt="Lab Computer and Equipment"/>
@@ -111,9 +114,11 @@ export default function LandingPage() {
           <Typography sx={{ my: 1, textWrap: 'balance' }}>
             Experience the future of streamlined laboratory management with LabLIM Online. LabLIM Online is the ultimate solution for companies striving to bootstrap performance. Sign up now to unlock a new era of efficiency, accuracy, and collaboration in your lab.
           </Typography> 
-          <Button variant="contained">
-            <Typography variant="h6" component="span" sx={{ my: 1 }}>Get Started</Typography>
-          </Button>
+          <NavLink to="/login">
+            <Button variant="contained">
+              <Typography variant="h6" component="span" sx={{ my: 1 }}>Get Started</Typography>
+            </Button>
+          </NavLink>
         </Box>
       </Box>
     </Container>
