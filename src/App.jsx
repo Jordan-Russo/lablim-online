@@ -17,6 +17,7 @@ import TestReport from './pages/TestReport'
 import CreateName from './pages/CreateName'
 import ReceivingOrganizations from './pages/ReceivingOrganizations'
 import IncomingOrders from './pages/IncomingOrders';
+import GettingStarted from './pages/GettingStarted';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
@@ -64,6 +65,15 @@ export default function App() {
               <Route exact path="/" element={<LandingPage />} />
               <Route path="/login" element={<Login />} />
               <Route path="/logout" element={<Logout />} />
+              <Route
+                exact
+                path="/getting-started"
+                element={
+                  <ProtectedRoute>
+                    <GettingStarted />
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 path="/create-new-organization"
                 element={

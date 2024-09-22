@@ -40,6 +40,6 @@ export default function Login() {
     )
   }
   else {
-    return <Navigate replace to="/" />
+    return <Navigate replace to="/getting-started" />
   }
 }

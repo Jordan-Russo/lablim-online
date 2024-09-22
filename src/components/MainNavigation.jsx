@@ -86,7 +86,7 @@ export default function MainNavigation() {
               variant="h6"
               noWrap
               component="a"
-              href="/"
+              href="/getting-started"
               sx={{
                 ml: 1,    
                 alignSelf: 'center',            
