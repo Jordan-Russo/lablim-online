@@ -50,7 +50,7 @@ In the upcoming v1.1, more features will be added to improve accessibility and c
 
 <p>Overall, my experience with MUI has been delightful and I intend to keep using it for future projects. Of all the other framework libraries for styling it's been the best one for me since it allows me to focus on the logic of an app rather than its style.</p> 
 
-<p>It was particularly critical for its use of tables but I tried using it whenever applicable building the views. While it's not as easy to use as Bootstrap, it's less tedious than TailwindCSS and was a good choice that led me to the best result.</p>
+<p>It was particularly critical for its use of tables but I tried using it whenever applicable building the views. While it's not as easy to use as Bootstrap, it's less verbose than TailwindCSS and was a good choice that led me to the best result.</p>
 
 <p>When creating an order that has samples with each having tests at once, it was imperative to keep all the information stored in separate tables but still linked. Making the connection between the client and the database had some challenges.</p>
 
