@@ -1,4 +1,4 @@
-import { useState, useMemo, Fragment } from 'react';
+import { useState, useRef, Fragment } from 'react';
 import { TextField, Button, Container, Typography, Box } from '@mui/material';
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from '../hooks/Auth'
@@ -10,7 +10,7 @@ import AutocompleteOrganizationSearch from '../components/AutocompleteOrganizati
  
  
 export default function CreateNewOrder(){
-  const orderID = useMemo(() => randomId(), []);
+  const {current: orderID} = useRef(randomId());
   const demoSampleID = randomId();
   const [organization, setOrganziation] = useState('')
   const [samples, setSamples] = useState([{id: demoSampleID, name: '', from_order: orderID}])
