@@ -1,4 +1,4 @@
-<p align="center"><a target="_blank" href="https://lablimonline.onrender.com/"><img src="/public/imgs/logo.png" height="40"></img></a></p>
+<p align="center"><a target="_blank" href="https://lablimonline.onrender.com/"><img src="./client/public/imgs/logo.png" height="40"></img></a></p>
 <h1 align="center"><a target="_blank" href="https://lablimonline.onrender.com/">VISIT HERE</a></h1>
 
 <a target="_blank" href="https://lablimonline.onrender.com/">
@@ -25,7 +25,7 @@
 
 <p>A generalized wireframe illustrating the application flow is shown below.</p>
 
-<picture><img src="/public/imgs/lablim-online-wireframe.png" alt="LabLIM Online Wireframe"/></picture>
+<picture><img src="./client/public/imgs/lablim-online-wireframe.png" alt="LabLIM Online Wireframe"/></picture>
 
 ## For Demo Use:
 
