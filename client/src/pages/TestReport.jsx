@@ -8,6 +8,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
+import grabTestReport from "../apis/grabTestReport";
+
 export default function TestReport(){
   const { orderID } = useParams();
   const [organizationInfo, setOrganizationInfo] = useState({})
@@ -20,12 +22,14 @@ export default function TestReport(){
   async function getInfo() {
     
     // Use API to info on the Organization from the orderID
-    let { data: orderData } = await supabase
-    .from('Orders')
-    .select('Organizations(*), users(*, Names(*)), Samples(*, Tests(*))')
-    .eq('id', orderID)
+    // let { data: orderData } = await supabase
+    // .from('Orders')
+    // .select('Organizations(*), users(*, Names(*)), Samples(*, Tests(*))')
+    // .eq('id', orderID)
     
-    // console.log("order data from api", orderData)
+    const orderData = await grabTestReport(orderID);
+    
+    console.log("order data from api", orderData)
     
     const {
       Organizations: {
@@ -42,9 +46,9 @@ export default function TestReport(){
           name: customerName
         }
       }
-    } = orderData[0]
+    } = orderData
     
-    const samples = orderData[0]?.Samples ?? []
+    const samples = orderData?.Samples ?? []
     setSamples(samples)
     
     setOrganizationInfo({organizationID, organizationName, organizationPhone, organizationEmail, organizationAddress})
