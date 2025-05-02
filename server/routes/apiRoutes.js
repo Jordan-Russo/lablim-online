@@ -1,11 +1,9 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const authController = rqeuire('../controllers/auth');
-const homeController = require('../controllers/home');
+import supabaseController from '../controllers/supabase.js';
 
-router.get('/', homeController.test);
-// /api/login
-// /api/logout
+router.get('/grabIncomingOrders/:id', supabaseController.grabIncomingOrders);
+router.get('/grabTestReport/:id', supabaseController.grabTestReport);
 // name, new order, new organization, get order...
 
-module.exports = router;
+export default router;

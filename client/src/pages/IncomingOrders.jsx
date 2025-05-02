@@ -3,6 +3,7 @@ import { useAuth } from '../hooks/Auth'
 import { supabaseClient as supabase } from '../config/supabase-client';
 import { Container, List, ListItem, Typography } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
+import grabIncomingOrders from '../apis/grabIncomingOrders';
 
 
 export default function IncomingOrders(){
@@ -34,14 +35,9 @@ export default function IncomingOrders(){
       navigate('/manage-organization')
       return;
     }
-
-    const { data } = await supabase
-    .from('Orders')
-    .select("id, created_at, order_status, Organizations (name, id), users(Names(name))")
-    .eq('order_received_by', organizationID)
-    .order('created_at', { ascending: false })
-    // console.log('real', data)
-    setter(data)
+    
+    // API contacts server to verifies user has proper auth to access data and gets it from the DB
+    await grabIncomingOrders(setter, organizationID);
   }
 
   // eslint-disable-next-line

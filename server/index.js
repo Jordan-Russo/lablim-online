@@ -1,12 +1,16 @@
-const express = require('express');
+import express from 'express';
+import cors from 'cors';
+import apiRoutes from './routes/apiRoutes.js';
+
 const app = express();
-const cors = require('cors');
-const apiRoutes = require('./routes/apiRoutes');
 
 app.use(cors());
 
+app.get('/', (req, res) => {res.send('test')})
 app.use('/api', apiRoutes);
 
-app.listen(process.env.PORT || 8080, () => {
-  console.log('Server listening on port 8080');
+const port = process.env.PORT || 8080;
+
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 })
